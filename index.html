@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#101a18" />
   <title>A little transmission for you ✦</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
   <style>
     :root{--bg:#0d1514;--panel:#14201d;--mint:#b7e4c7;--lime:#d7f171;--cream:#f7f2e8;--muted:#9baea5;--line:#30423b;--orange:#efb37e}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#294039 0%,var(--bg) 55%);color:var(--cream);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
@@ -56,7 +57,7 @@
     .jenny-thumb{width:100%;height:100%;object-fit:cover;display:block}.jenny-thumb-fallback{display:none;width:100%;height:100%;place-items:center;align-content:center;gap:4px;font-size:32px}.jenny-thumb-fallback small{font:9px ui-monospace,monospace;letter-spacing:.18em;color:#d7e5d5}
     .keepsake-kicker{font-size:9px;letter-spacing:.16em;color:var(--lime)}.keepsake-copy h3,.tree-card-top h3{font:400 clamp(21px,5vw,27px)/1.13 Georgia,serif;color:var(--cream);margin:8px 0}.keepsake-copy p,.tree-card-top p{font-size:12px;line-height:1.7;margin:6px 0;color:#d0dbd2}.keepsake-copy strong,.tree-card-top strong{color:var(--cream)}.quiet-copy{color:#9fb0a4!important;font-size:11px!important}
     .certificate-heading{display:flex;align-items:center;gap:10px;padding:13px 1px 11px;border-top:1px solid #35483e;color:#a8b9a9;font:9px ui-monospace,monospace;letter-spacing:.12em}.certificate-rule{height:1px;flex:1;background:#405448}
-    .keepsake-certificate{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:9px;background:#f4f0e5;border:1px solid #d2c7aa}.adoption-pdf-preview{height:480px;background:#f4f0e5}.pdf-open-link{margin:8px 0 0!important;text-align:right;font-size:11px!important}.pdf-open-link a{color:var(--mint);text-decoration:none}
+    .keepsake-certificate{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:9px;background:#f4f0e5;border:1px solid #d2c7aa}.adoption-pdf-pages{display:grid;gap:12px;margin-top:2px}.adoption-pdf-page{display:block;width:100%;height:auto;background:#f4f0e5;border:1px solid #d2c7aa;border-radius:9px;box-shadow:0 8px 24px #0002}.adoption-pdf-status{font-size:11px!important;color:var(--muted)!important;text-align:center;padding:18px;border:1px dashed #526457;border-radius:10px}.pdf-open-link{margin:8px 0 0!important;text-align:right;font-size:11px!important}.pdf-open-link a{color:var(--mint);text-decoration:none}
 
     .jenny-story{margin:17px 0 4px;padding:16px;border:1px solid #405448;border-radius:15px;background:linear-gradient(145deg,#17251f,#121b17)}
     .jenny-story .story-kicker{font:9px ui-monospace,monospace;letter-spacing:.16em;color:var(--lime)}
@@ -95,7 +96,7 @@
       <h1>Hey, Chef.<br><em>This one's for you.</em></h1>
       <p class="sub">A little message from land to sea.<br>No bug reports, no kitchen tickets. Just good energy. ✦</p>
       <div class="terminal mono" id="birthdayTerminal"><div class="terminal-head"><span>birthday.sh</span><span>RUNNING WITH LOVE</span></div><div class="progress-track"><div class="progress-fill" id="terminalProgress"></div></div><p class="terminal-line" data-text="initializing birthday_mode..."><span class="prompt">&gt;</span> <span class="typed"></span></p><p class="terminal-line" data-text="loading good wishes [OK]"><span class="prompt">&gt;</span> <span class="typed"></span></p><p class="terminal-line" data-text="checking for cake dependencies..."><span class="prompt">&gt;</span> <span class="typed"></span></p><p class="terminal-line" data-text="error: cake is too far away 🌊"><span class="prompt">&gt;</span> <span class="typed"></span></p><p class="terminal-line" data-text="deploying something meaningful"><span class="prompt">&gt;</span> <span class="typed"></span><span class="cursor"></span></p></div>
-      <button class="btn" id="startBtn">Run Birthday Project.exe ↗</button>
+      <button class="btn" id="startBtn">Run birthday.exe ↗</button>
       <p class="music-note mono" id="musicStatus" aria-live="polite">A little soundtrack is ready · add <strong>yellow.mp3</strong></p>
       <audio id="birthdayMusic" src="./yellow.mp3" preload="auto"></audio>
     </header>
@@ -185,7 +186,7 @@
           <span class="certificate-rule"></span>
           <span>JENNY'S ADOPTION</span>
         </div>
-        <iframe class="keepsake-certificate adoption-pdf-preview" src="./adoption-certificate.pdf" title="Jenny's adoption certificate for Chef Jeannica"></iframe><p class="pdf-open-link"><a href="./adoption-certificate.pdf" target="_blank" rel="noopener">Open adoption certificate ↗</a></p>
+        <div id="adoptionPdfPages" class="adoption-pdf-pages" aria-label="Jenny's adoption certificate rendered as images"><p class="adoption-pdf-status">Preparing Jenny's adoption certificate…</p></div>
       </article>
 
       <article class="keepsake-card trees-keepsake" id="treeCertificate">
@@ -203,7 +204,7 @@
       <p class="gift-ending">With warmth and gratitude,<br>From land to sea, with a little kindness in between. 🤍🌿</p>
       <div class="actions"><button class="btn" id="printBtn">Download both certificates as PDF ↗</button><button class="btn secondary" id="againBtn">Back to birthday wishes ↺</button></div>
     </section>
-    <footer class="footer mono">END OF TRANSMISSION <span class="heart">♥</span><br>Built with a little code and a little care </footer>
+    <footer class="footer mono">END OF TRANSMISSION <span class="heart">♥</span><br>Built with a little code, a little care, and birthday-level optimism.</footer>
   </main>
   <script>
     const message = document.getElementById('message');
@@ -305,6 +306,7 @@
       section.setAttribute('aria-hidden', 'false');
 
       if (section === gift) {
+        renderAdoptionCertificate();
         // Restart the reveal animation without delaying navigation.
         void section.offsetWidth;
         section.classList.add('gift-open');
@@ -360,6 +362,49 @@
     }
     window.decodeSignal = decodeSignal;
     document.getElementById('decodeForm').addEventListener('submit', decodeSignal);
+    // Render the uploaded adoption PDF into PNG images for the on-page keepsake preview.
+    // The original PDF remains untouched and is used again when the combined PDF is downloaded.
+    let adoptionPreviewPromise;
+    async function renderAdoptionCertificate() {
+      const container = document.getElementById('adoptionPdfPages');
+      if (!container || container.dataset.rendered === 'true') return;
+      if (adoptionPreviewPromise) return adoptionPreviewPromise;
+      adoptionPreviewPromise = (async () => {
+        try {
+          if (!window.pdfjsLib) throw new Error('The PDF preview library did not load.');
+          window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+          const response = await fetch('./adoption-certificate.pdf');
+          if (!response.ok) throw new Error('Could not load adoption-certificate.pdf.');
+          const bytes = new Uint8Array(await response.arrayBuffer());
+          const pdf = await window.pdfjsLib.getDocument({ data: bytes }).promise;
+          container.innerHTML = '';
+          for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+            const page = await pdf.getPage(pageNumber);
+            const baseViewport = page.getViewport({ scale: 1 });
+            const scale = Math.min(2, Math.max(1, (container.clientWidth || 600) / baseViewport.width));
+            const viewport = page.getViewport({ scale });
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d', { alpha: false });
+            canvas.width = Math.ceil(viewport.width);
+            canvas.height = Math.ceil(viewport.height);
+            await page.render({ canvasContext: context, viewport }).promise;
+            const image = document.createElement('img');
+            image.className = 'adoption-pdf-page';
+            image.alt = `Jenny's adoption certificate, page ${pageNumber}`;
+            image.src = canvas.toDataURL('image/png');
+            container.appendChild(image);
+            canvas.width = 0; canvas.height = 0;
+          }
+          container.dataset.rendered = 'true';
+        } catch (error) {
+          console.error('Could not render adoption certificate preview:', error);
+          container.innerHTML = '<p class="adoption-pdf-status">The certificate preview could not be displayed. Please check that adoption-certificate.pdf is uploaded beside index.html.</p><p class="pdf-open-link"><a href="./adoption-certificate.pdf" target="_blank" rel="noopener">Open original PDF ↗</a></p>';
+          adoptionPreviewPromise = null;
+        }
+      })();
+      return adoptionPreviewPromise;
+    }
+
     async function downloadCertificatesPdf() {
       const button = document.getElementById('printBtn');
       const oldLabel = button.textContent;
