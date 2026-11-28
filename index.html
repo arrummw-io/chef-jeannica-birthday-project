@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#101a18" />
   <title>A little transmission for you ✦</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" defer></script>
   <style>
     :root{--bg:#0d1514;--panel:#14201d;--mint:#b7e4c7;--lime:#d7f171;--cream:#f7f2e8;--muted:#9baea5;--line:#30423b;--orange:#efb37e}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#294039 0%,var(--bg) 55%);color:var(--cream);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
-    button{font:inherit;cursor:pointer}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em}.shell{width:min(100% - 28px,680px);margin:0 auto;padding:22px 0 44px}.topbar{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.16em;margin-bottom:38px}.status{display:flex;align-items:center;gap:8px}.dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px #d7f17188}.hero{text-align:center;padding:25px 7px 35px}.eyebrow{color:var(--mint);font-size:11px;letter-spacing:.23em;text-transform:uppercase}.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(40px,10vw,66px);line-height:.99;letter-spacing:-.045em;margin:20px 0 18px}.hero h1 em{color:var(--lime);font-weight:400}.sub{color:#bdcbc3;line-height:1.7;font-size:14px;max-width:400px;margin:0 auto}.terminal{margin:25px auto 0;max-width:440px;text-align:left;border:1px solid var(--line);background:#0b1211c9;border-radius:14px;padding:16px 17px;box-shadow:0 20px 50px #0002}.terminal-head{display:flex;justify-content:space-between;color:#7f968a;font-size:10px;padding-bottom:12px;border-bottom:1px solid #26352f}.terminal p{margin:10px 0 0;font-size:12px;color:#d1e2d7;line-height:1.7;min-height:1.2em}.terminal .prompt{color:var(--lime)}.terminal .terminal-line{white-space:pre-wrap;overflow-wrap:anywhere}.terminal .terminal-line .typed{color:#d1e2d7}.terminal .terminal-line .prompt{color:var(--lime)}.message-copy p{font-size:14px;line-height:1.85;color:#d3ddd6}.message-copy strong{color:var(--cream)}.message-copy ul{padding-left:20px;color:#d3ddd6}.message-copy li{font-size:13px;line-height:1.8;margin:8px 0}.gift-photo{display:block;width:100%;height:auto;object-fit:contain;border-radius:13px;margin:14px auto 0}.jenny-photo{width:100%;max-width:320px;max-height:360px;object-fit:cover;aspect-ratio:4/5;background:#213128;border-radius:16px}.certificate-photo{width:100%;max-width:100%;max-height:none;background:#f4f0e5;border:1px solid #d2c7aa;padding:5px;border-radius:12px}.asset-hint{font-size:10px!important;color:#9aab9f!important;margin:7px 0 15px!important}.certificate-image-wrap{margin-top:18px}.gift-intro{max-width:58ch}.gift-section-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);margin:26px 0 10px}.gift-visual{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin:18px 0 24px}.jenny-card{display:grid;grid-template-columns:minmax(0,1fr);gap:15px;padding:16px;border:1px solid #354a3f;border-radius:18px;background:linear-gradient(145deg,#1b2a24,#111a16)}.jenny-card-copy h3,.tree-dedication h3{font:400 clamp(23px,6vw,31px)/1.15 Georgia,serif;color:var(--cream);margin:8px 0}.jenny-card-copy p{font-size:13px;line-height:1.75}.tree-dedication{border:1px solid #53684b;background:linear-gradient(145deg,#203328,#15231c);padding:20px;border-radius:18px;margin:20px 0}.tree-dedication>span{font-size:9px;color:var(--lime);letter-spacing:.15em}.tree-dedication h3{margin:12px 0}.tree-dedication p{margin-bottom:0}.tree-symbols{margin-top:15px;letter-spacing:.16em;line-height:2}.certificates{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;margin-top:12px}.certificate-card{padding:16px;border:1px solid var(--line);border-radius:18px;background:#111a16}.certificate-card h3{font:400 23px/1.2 Georgia,serif;margin:0 0 6px;color:var(--cream)}.certificate-card p{font-size:12px;margin:0;color:var(--muted)}.certificate-card .gift-photo{margin-top:14px}.certificate-card .asset-hint{overflow-wrap:anywhere}.gift-ending{font:italic 17px/1.65 Georgia,serif;color:var(--cream)!important;padding:16px;border-left:2px solid var(--orange);background:#f3d6bd0a;border-radius:0 12px 12px 0}.cursor{display:inline-block;width:7px;height:13px;background:var(--lime);vertical-align:middle;animation:blink 1s steps(2,start) infinite}@keyframes blink{to{visibility:hidden}}
+    button{font:inherit;cursor:pointer}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em}.shell{width:min(100% - 28px,680px);margin:0 auto;padding:22px 0 44px}.topbar{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.16em;margin-bottom:38px}.status{display:flex;align-items:center;gap:8px}.dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px #d7f17188}.hero{text-align:center;padding:25px 7px 35px}.eyebrow{color:var(--mint);font-size:11px;letter-spacing:.23em;text-transform:uppercase}.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(40px,10vw,66px);line-height:.99;letter-spacing:-.045em;margin:20px 0 18px}.hero h1 em{color:var(--lime);font-weight:400}.sub{color:#bdcbc3;line-height:1.7;font-size:14px;max-width:400px;margin:0 auto}.terminal{margin:25px auto 0;max-width:440px;text-align:left;border:1px solid var(--line);background:#0b1211c9;border-radius:14px;padding:16px 17px;box-shadow:0 20px 50px #0002}.terminal-head{display:flex;justify-content:space-between;color:#7f968a;font-size:10px;padding-bottom:12px;border-bottom:1px solid #26352f}.terminal p{margin:10px 0 0;font-size:12px;color:#d1e2d7;line-height:1.7;min-height:1.2em}.terminal .prompt{color:var(--lime)}.terminal .terminal-line{white-space:pre-wrap;overflow-wrap:anywhere}.terminal .terminal-line .typed{color:#d1e2d7}.terminal .terminal-line .prompt{color:var(--lime)}.message-copy p{font-size:14px;line-height:1.85;color:#d3ddd6}.birthday-prayer{margin:15px 0 20px;padding:17px 18px;border-left:2px solid var(--lime);border-radius:0 12px 12px 0;background:#d7f1710b;color:#e0e8e1;font:italic 15px/1.85 Georgia,serif}.message-copy .closing-note{margin-top:20px}.message-copy strong{color:var(--cream)}.message-copy ul{padding-left:20px;color:#d3ddd6}.message-copy li{font-size:13px;line-height:1.8;margin:8px 0}.gift-photo{display:block;width:100%;height:auto;object-fit:contain;border-radius:13px;margin:14px auto 0}.jenny-photo{width:100%;max-width:320px;max-height:360px;object-fit:cover;aspect-ratio:4/5;background:#213128;border-radius:16px}.certificate-photo{width:100%;max-width:100%;max-height:none;background:#f4f0e5;border:1px solid #d2c7aa;padding:5px;border-radius:12px}.asset-hint{font-size:10px!important;color:#9aab9f!important;margin:7px 0 15px!important}.certificate-image-wrap{margin-top:18px}.gift-intro{max-width:58ch}.gift-section-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);margin:26px 0 10px}.gift-visual{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin:18px 0 24px}.jenny-card{display:grid;grid-template-columns:minmax(0,1fr);gap:15px;padding:16px;border:1px solid #354a3f;border-radius:18px;background:linear-gradient(145deg,#1b2a24,#111a16)}.jenny-card-copy h3,.tree-dedication h3{font:400 clamp(23px,6vw,31px)/1.15 Georgia,serif;color:var(--cream);margin:8px 0}.jenny-card-copy p{font-size:13px;line-height:1.75}.tree-dedication{border:1px solid #53684b;background:linear-gradient(145deg,#203328,#15231c);padding:20px;border-radius:18px;margin:20px 0}.tree-dedication>span{font-size:9px;color:var(--lime);letter-spacing:.15em}.tree-dedication h3{margin:12px 0}.tree-dedication p{margin-bottom:0}.tree-symbols{margin-top:15px;letter-spacing:.16em;line-height:2}.certificates{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;margin-top:12px}.certificate-card{padding:16px;border:1px solid var(--line);border-radius:18px;background:#111a16}.certificate-card h3{font:400 23px/1.2 Georgia,serif;margin:0 0 6px;color:var(--cream)}.certificate-card p{font-size:12px;margin:0;color:var(--muted)}.certificate-card .gift-photo{margin-top:14px}.certificate-card .asset-hint{overflow-wrap:anywhere}.gift-ending{font:italic 17px/1.65 Georgia,serif;color:var(--cream)!important;padding:16px;border-left:2px solid var(--orange);background:#f3d6bd0a;border-radius:0 12px 12px 0}.cursor{display:inline-block;width:7px;height:13px;background:var(--lime);vertical-align:middle;animation:blink 1s steps(2,start) infinite}@keyframes blink{to{visibility:hidden}}
     /* Cinematic but gentle motion: fireflies, reveal-on-scroll, and a gift-opening moment */
     .ambient{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0;opacity:.7}
     .firefly{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px 3px #d7f17155;animation:drift var(--dur,12s) ease-in-out infinite alternate;left:var(--x);top:var(--y);opacity:0}
@@ -47,6 +47,38 @@
     .adoption-callout{display:flex;flex-direction:column;gap:10px;margin:18px 0;padding:19px;border-radius:16px;background:#d7f1710c;border:1px solid #71814b}
     .adoption-callout .mono{font-size:9px;letter-spacing:.13em;color:var(--lime)}.adoption-callout strong{font:400 23px/1.25 Georgia,serif;color:var(--cream)}.adoption-callout em{font-size:13px;color:var(--muted)}.adoption-callout .mama-line{color:var(--lime)}
     #message,#teaser,#gift{scroll-margin-top:16px}
+    /* Gift payload: two calm, editorial keepsake cards */
+    .gift-heading{padding:12px 0 24px;text-align:center}.gift-overline{font-size:9px;letter-spacing:.2em;color:var(--mint)}
+    .gift-heading h2{margin:14px 0 9px;font-size:clamp(34px,8vw,48px);line-height:1.02}.gift-heading h2 em{color:var(--lime);font-weight:400}.gift-heading>p{margin:0;color:var(--muted);font-size:12px}
+    .keepsake-card{border:1px solid #405448;border-radius:20px;padding:17px;background:linear-gradient(145deg,#1c2b24,#111a16);margin:0 0 17px;overflow:hidden;box-shadow:0 16px 40px #00000018}
+    .keepsake-intro{display:grid;grid-template-columns:88px minmax(0,1fr);gap:15px;align-items:center;padding:2px 1px 16px}
+    .jenny-thumb-wrap{width:88px;height:104px;border-radius:13px;overflow:hidden;background:linear-gradient(145deg,#435b43,#1e3228);border:1px solid #71866a;position:relative}
+    .jenny-thumb{width:100%;height:100%;object-fit:cover;display:block}.jenny-thumb-fallback{display:none;width:100%;height:100%;place-items:center;align-content:center;gap:4px;font-size:32px}.jenny-thumb-fallback small{font:9px ui-monospace,monospace;letter-spacing:.18em;color:#d7e5d5}
+    .keepsake-kicker{font-size:9px;letter-spacing:.16em;color:var(--lime)}.keepsake-copy h3,.tree-card-top h3{font:400 clamp(21px,5vw,27px)/1.13 Georgia,serif;color:var(--cream);margin:8px 0}.keepsake-copy p,.tree-card-top p{font-size:12px;line-height:1.7;margin:6px 0;color:#d0dbd2}.keepsake-copy strong,.tree-card-top strong{color:var(--cream)}.quiet-copy{color:#9fb0a4!important;font-size:11px!important}
+    .certificate-heading{display:flex;align-items:center;gap:10px;padding:13px 1px 11px;border-top:1px solid #35483e;color:#a8b9a9;font:9px ui-monospace,monospace;letter-spacing:.12em}.certificate-rule{height:1px;flex:1;background:#405448}
+    .keepsake-certificate{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:9px;background:#f4f0e5;border:1px solid #d2c7aa}.adoption-pdf-preview{height:480px;background:#f4f0e5}.pdf-open-link{margin:8px 0 0!important;text-align:right;font-size:11px!important}.pdf-open-link a{color:var(--mint);text-decoration:none}
+
+    .jenny-story{margin:17px 0 4px;padding:16px;border:1px solid #405448;border-radius:15px;background:linear-gradient(145deg,#17251f,#121b17)}
+    .jenny-story .story-kicker{font:9px ui-monospace,monospace;letter-spacing:.16em;color:var(--lime)}
+    .jenny-story h4{font:400 22px/1.2 Georgia,serif;color:var(--cream);margin:8px 0}
+    .jenny-story p{font-size:12px;line-height:1.75;color:#c5d2ca;margin:8px 0}
+    .jenny-story .story-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:13px 0}
+    .jenny-story .story-fact{padding:10px;border-radius:10px;background:#d7f1710a;border:1px solid #35483e}
+    .jenny-story .story-fact strong{display:block;color:var(--cream);font:400 16px Georgia,serif;margin-bottom:4px}
+    .jenny-story .story-fact span{font-size:9px;line-height:1.5;color:#9fb0a4}
+    .story-details{margin-top:13px;border-top:1px solid #35483e;padding-top:12px}
+    .story-details summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--mint);font-size:12px;font-weight:600;padding:5px 0}
+    .story-details summary::-webkit-details-marker{display:none}
+    .story-details summary:after{content:'＋';font-size:17px;color:var(--lime)}
+    .story-details[open] summary:after{content:'−'}
+    .story-pdf{display:block;width:100%;height: min(76vh,720px);min-height:420px;border:1px solid #526457;border-radius:10px;background:#f4f0e5;margin-top:12px}
+    .story-pdf-link{font-size:10px!important;text-align:right;margin:8px 0 0!important}
+    .story-pdf-link a{color:var(--mint);text-decoration:none}
+    .story-credit{font-size:9px!important;color:#8fa395!important;margin-top:9px!important}
+    .trees-keepsake{background:linear-gradient(145deg,#24372a,#14221b);border-color:#596b4e;padding:19px}.tree-card-top{text-align:center;padding:4px 4px 14px}.tree-count{font:400 clamp(46px,12vw,66px)/.95 Georgia,serif;color:var(--lime);margin:10px 0 2px}.tree-count span{font-size:.45em;vertical-align:middle}.tree-card-top h3{margin:4px 0 9px}.tree-card-top .tree-title{font-size:clamp(15px,4vw,22px);white-space:nowrap}.tree-card-top>p{max-width:470px;margin:7px auto}.tree-divider{display:flex;align-items:center;justify-content:center;gap:12px;padding:11px 0 13px;border-top:1px solid #53664d;color:#c2d29c;font:9px ui-monospace,monospace;letter-spacing:.13em;text-align:center}
+    .gift-story,.gift-closing{max-width:58ch;margin:0 auto 16px;text-align:justify;text-justify:inter-word}.gift-story p{font-size:13px;line-height:1.85;color:#c5d2ca;margin:0 0 12px}.gift-story strong{color:var(--cream)}.gift-closing{max-width:58ch;margin:23px auto 12px;text-align:justify!important;text-justify:inter-word;font-size:12px!important;color:#b9c9bd!important;line-height:1.8!important}.gift-ending{text-align:center;border-left:0!important;border-top:1px solid #405448;border-radius:0!important;background:transparent!important;padding:17px 0 0!important;margin-top:15px!important;font-size:15px!important}
+    @media(min-width:560px){.keepsake-card{padding:22px}.keepsake-intro{grid-template-columns:112px minmax(0,1fr);gap:19px;padding-bottom:19px}.jenny-thumb-wrap{width:112px;height:126px}.trees-keepsake{padding:24px}}
+    @media(max-width:420px){.keepsake-card{padding:13px}.keepsake-intro{grid-template-columns:76px minmax(0,1fr);gap:12px}.jenny-thumb-wrap{width:76px;height:94px}.keepsake-copy h3{font-size:20px}.tree-count{font-size:50px}}
     @media(max-width:420px){.section{padding:19px}.decode-row{flex-direction:column}.decode-row .btn{width:100%}.signal-row{font-size:9px}.jenny-card{padding:13px}.tree-dedication{padding:17px}.certificate-card{padding:12px}}
     @media(min-width:560px){.jenny-card{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center}.certificates{grid-template-columns:repeat(2,minmax(0,1fr))}.certificate-card{padding:14px}.gift-visual{gap:18px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}\n    @media(min-width:600px){.shell{padding-top:30px}.hero{padding-top:38px}.section{padding:30px}.certificate{padding:34px 30px}.orangutan-art{grid-template-columns:120px 1fr}}
@@ -63,28 +95,30 @@
       <h1>Hey, Chef.<br><em>This one's for you.</em></h1>
       <p class="sub">A little message from land to sea.<br>No bug reports, no kitchen tickets. Just good energy. ✦</p>
       <div class="terminal mono" id="birthdayTerminal"><div class="terminal-head"><span>birthday.sh</span><span>RUNNING WITH LOVE</span></div><div class="progress-track"><div class="progress-fill" id="terminalProgress"></div></div><p class="terminal-line" data-text="initializing birthday_mode..."><span class="prompt">&gt;</span> <span class="typed"></span></p><p class="terminal-line" data-text="loading good wishes [OK]"><span class="prompt">&gt;</span> <span class="typed"></span></p><p class="terminal-line" data-text="checking for cake dependencies..."><span class="prompt">&gt;</span> <span class="typed"></span></p><p class="terminal-line" data-text="error: cake is too far away 🌊"><span class="prompt">&gt;</span> <span class="typed"></span></p><p class="terminal-line" data-text="deploying something meaningful"><span class="prompt">&gt;</span> <span class="typed"></span><span class="cursor"></span></p></div>
-      <button class="btn" id="startBtn">Run birthday.exe ↗</button>
+      <button class="btn" id="startBtn">Run Birthday Project.exe ↗</button>
       <p class="music-note mono" id="musicStatus" aria-live="polite">A little soundtrack is ready · add <strong>yellow.mp3</strong></p>
       <audio id="birthdayMusic" src="./yellow.mp3" preload="auto"></audio>
     </header>
 
     <section class="section" id="message">
-      <div class="step mono">01 / Birthday wishes</div>
+      <div class="step mono">01 / Birthday &amp; Wishes 🤍</div>
       <div class="message-copy">
         <p class="kicker mono">A note, just for you</p>
         <h2><strong>Happy Birthday,<br>Chef Jeannica!</strong> 🎂🤍</h2>
-        <p>As you know, I’m really grateful that I got to know you. You’ve inspired me to become a better person, and yep, I wanted to try to do the same for you.</p>
-        <p>My wishes for you are these verses:</p>
+        <p>Happy birthday, Chef! 🤍</p>
+        <p>As you know, I'm truly grateful that I got to know you. You've inspired me to become a better person, and I hope this little message can bring you even a bit of the happiness you've brought into my life.</p>
+        <p><strong>My birthday wishes and prayers for you:</strong></p>
+        <blockquote class="birthday-prayer">“Thank You, God, for her life, and for bringing me to such a beautiful soul. I pray that You continue to use her as a blessing to others, just as she has been a blessing to me.<br><br>You know everything in her heart — her deepest wounds, unspoken prayers, battles, and struggles. I pray that You surprise her with Your amazing grace. Free her burdened heart, heal her soul, and restore every broken part of her. May she find peace, strength, and comfort in Your presence. Amen.”</blockquote>
+        <p>These verses remind me of my prayers for you:</p>
         <div class="verse-card"><span class="verse-number mono">PHILIPPIANS 1:3</span><p>“I thank my God every time I remember you.”</p></div>
         <div class="verse-card"><span class="verse-number mono">PHILIPPIANS 1:4</span><p>“In all my prayers for all of you, I always pray with joy.”</p></div>
         <div class="verse-card"><span class="verse-number mono">PHILIPPIANS 1:9</span><p>“And this is my prayer: that your love may abound more and more in knowledge and depth of insight.”</p></div>
-        <p>May you always have reasons to smile, people who appreciate you, and a heart that keeps finding joy in doing good.</p>
-        <p>I hope this new chapter brings you beautiful memories, meaningful journeys, and little reminders of how much good you bring into the world.</p>
-        <p class="closing-note"><strong>Happy birthday, Chef.</strong><br>Thank you for being someone who inspires others to be a little better. 🤍🌿</p>
+        <p>May this new chapter bring you beautiful memories, meaningful journeys, unexpected blessings, and countless reasons to smile.</p>
+        <p>Thank you for being someone who inspires others to be a little better. I hope life gives you as much goodness as you have brought into the lives of others.</p>
+        <p class="closing-note"><strong>Happy birthday, Chef. May God bless you always. 🤍🌿</strong></p>
       </div>
       <div class="actions"><button class="btn" id="giftTeaserBtn">There's one more thing… →</button></div>
     </section>
-
     <section class="section" id="teaser">
       <div class="step mono">03 / Incoming transmission</div>
       <p class="kicker mono">Gift teaser · encrypted message</p>
@@ -106,50 +140,70 @@
 
     <section class="section" id="gift">
       <div class="step mono">04 / Gift payload unlocked</div>
-      <h2>A little gift.<br>A living story. 🦧🌿</h2>
-      <div class="gift-intro">
+      <div class="gift-heading">
+        <span class="gift-overline mono">A birthday gift with a little purpose</span>
+        <h2>A little kindness,<br><em>a living story.</em> 🦧🌿</h2>
+        <p>Two little gifts, carrying a whole lot of love.</p>
+      </div>
+
+      <div class="gift-story">
         <p>As you might know, forest and land fires (<em>karhutla</em>) in parts of <strong>Kalimantan (the Indonesian part of Borneo)</strong> have threatened orangutans and their natural habitats, leaving some in need of rescue and rehabilitation.</p>
         <p>You've inspired me to pass a little kindness forward, Chef, and I wanted to turn that into something meaningful.</p>
       </div>
-      <div class="jenny-card">
-        <img class="gift-photo jenny-photo" src="./jenny.png" alt="Jenny the orangutan" />
-        <div class="jenny-card-copy">
-          <p class="kicker mono">ADOPTION STATUS / ON YOUR BEHALF</p>
-          <h3>I've adopted Jenny on your behalf. 🦧🤍</h3>
-          <p>And that means...</p>
-          <h3 style="color:var(--lime)">You're now one of Jenny's mamas!</h3>
-          <p>A small gift, a bigger purpose — and a little care for orangutans and their habitat.</p>
+
+      <article class="keepsake-card adoption-keepsake" id="adoptionCertificate">
+        <div class="keepsake-intro">
+          <div class="jenny-thumb-wrap">
+            <img class="jenny-thumb" src="./jenny.png" alt="Jenny the orangutan" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'" />
+            <div class="jenny-thumb-fallback" aria-label="Jenny photo placeholder">🦧<small>JENNY</small></div>
+          </div>
+          <div class="keepsake-copy">
+            <span class="keepsake-kicker mono">01 / ORANGUTAN ADOPTION</span>
+            <h3>Meet Jenny. Your new little family member.</h3>
+            <p>I've adopted Jenny on your behalf, Chef. And that means... <strong>you're now one of Jenny's mamas!</strong> 🤍</p>
+            <p class="quiet-copy">A small gesture to support orangutan care and the protection of their home in Borneo.</p>
+          </div>
         </div>
-      </div>
-      <p class="asset-hint">Add Jenny's photo to the Replit project root and name it <strong>jenny.png</strong>.</p>
-      <div class="tree-dedication">
-        <span class="mono">A LITTLE FOREST OF GOOD WISHES</span>
-        <h3>33 Trees. 33 Prayers. Countless Lives.</h3>
-        <p>And there's one more little gift: I've also made a donation to plant <strong>33 trees in your name.</strong> 🌱</p>
-        <p>Thirty-three trees, carrying thirty-three little prayers for you, with the hope that they'll grow to nurture life, shelter wildlife, and bring a little more goodness into this world.</p>
-        <div class="tree-symbols" aria-label="A little forest of good wishes">🌱 🌿 🌱 🌿 🌱 🌿 🌱 🌿 🌱 🌿 🌱</div>
-      </div>
-      <p>I hope these little gifts remind you that kindness doesn't have to stop with one person. Sometimes, it finds its way into other lives and grows into something bigger than we ever imagined.</p>
+        <div class="jenny-story">
+          <span class="story-kicker">A LITTLE STORY BEHIND JENNY</span>
+          <h4>Every little life deserves a second chance.</h4>
+          <p>Jenny was found alone in an oil palm plantation in East Kalimantan. After spending around five months with a local resident, she was rescued and brought to Samboja Lestari on 3 January 2025, when she was just 18 months old.</p>
+          <p>At first, the new surroundings felt unfamiliar and frightening. With the care of her surrogate mothers, Jenny gradually began to adapt. About a month later, she was joining Forest School and showing her climbing skills. And she even had a cheeky moment trying to steal a friend's papaya. 🧡</p>
+          <div class="story-facts">
+            <div class="story-fact"><strong>3 Jan 2025</strong><span>Arrived at Samboja Lestari</span></div>
+            <div class="story-fact"><strong>18 months</strong><span>Age when she arrived</span></div>
+          </div>
+          <details class="story-details">
+            <summary>Read Jenny's full background story</summary>
+            <iframe class="story-pdf" src="./jenny-background-story.pdf#view=FitH" title="Jenny's background story from BOS Foundation" loading="lazy"></iframe>
+            <p class="story-pdf-link"><a href="./jenny-background-story.pdf" target="_blank" rel="noopener">Open story in a new tab ↗</a></p>
+          </details>
+          <p class="story-credit">Story and photographs: BOS Foundation · Samboja Lestari</p>
+        </div>
+        <div class="certificate-heading">
+          <span>YOUR KEEPSAKE</span>
+          <span class="certificate-rule"></span>
+          <span>JENNY'S ADOPTION</span>
+        </div>
+        <iframe class="keepsake-certificate adoption-pdf-preview" src="./adoption-certificate.pdf" title="Jenny's adoption certificate for Chef Jeannica"></iframe><p class="pdf-open-link"><a href="./adoption-certificate.pdf" target="_blank" rel="noopener">Open adoption certificate ↗</a></p>
+      </article>
+
+      <article class="keepsake-card trees-keepsake" id="treeCertificate">
+        <div class="tree-card-top">
+          <span class="keepsake-kicker mono">02 / A GIFT FOR THE EARTH</span>
+          <h3 class="tree-title">33 🌱 Trees, 33 Prayers</h3>
+          <p>I've also made a donation to plant <strong>33 trees in your name.</strong></p>
+          <p class="quiet-copy">Thirty-three little prayers, taking root in the earth. May they grow to nurture life, shelter wildlife, and bring a little more goodness into this world.</p>
+        </div>
+        <div class="tree-divider"><span>WITH LOVE, FOR A GREENER TOMORROW</span></div>
+        <img class="keepsake-certificate" src="./tree-certificate.png" alt="Certificate for planting 33 trees in Chef Jeannica's name" />
+      </article>
+
+      <p class="gift-closing">I hope these little gifts remind you that kindness doesn't have to stop with one person. Sometimes, it finds its way into other lives and grows into something bigger than we ever imagined.</p>
       <p class="gift-ending">With warmth and gratitude,<br>From land to sea, with a little kindness in between. 🤍🌿</p>
-      <div class="gift-section-label mono">Two little keepsakes</div>
-      <div class="certificates" id="certificates">
-        <article class="certificate-card" id="adoptionCertificate">
-          <h3>Jenny's Adoption Certificate 🦧</h3>
-          <p>A little reminder of the kindness you're passing forward.</p>
-          <img class="gift-photo certificate-photo" src="./adoption-certificate.png" alt="Jenny adoption certificate" loading="lazy" />
-          <p class="asset-hint">Upload the adoption certificate PNG as <strong>adoption-certificate.png</strong>.</p>
-        </article>
-        <article class="certificate-card" id="treeCertificate">
-          <h3>33 Trees Certificate 🌱</h3>
-          <p>Thirty-three trees, thirty-three prayers, and countless hopes for life.</p>
-          <img class="gift-photo certificate-photo" src="./tree-certificate.png" alt="Certificate for planting 33 trees in Chef's name" loading="lazy" />
-          <p class="asset-hint">Upload the tree-planting certificate PNG as <strong>tree-certificate.png</strong>.</p>
-        </article>
-      </div>
-      <p class="fineprint">Upload both certificate PNGs to the project root alongside <strong>index.html</strong> and <strong>jenny.png</strong>. Use the genuine certificates from the relevant organisations.</p>
       <div class="actions"><button class="btn" id="printBtn">Download both certificates as PDF ↗</button><button class="btn secondary" id="againBtn">Back to birthday wishes ↺</button></div>
     </section>
-    <footer class="footer mono">END OF TRANSMISSION <span class="heart">♥</span><br>Built with a little code, a little care, and birthday-level optimism.</footer>
+    <footer class="footer mono">END OF TRANSMISSION <span class="heart">♥</span><br>Built with a little code and a little care </footer>
   </main>
   <script>
     const message = document.getElementById('message');
@@ -308,54 +362,50 @@
     document.getElementById('decodeForm').addEventListener('submit', decodeSignal);
     async function downloadCertificatesPdf() {
       const button = document.getElementById('printBtn');
-      const certificateImages = [
-        { id: 'adoptionCertificate', filename: './adoption-certificate.png' },
-        { id: 'treeCertificate', filename: './tree-certificate.png' }
-      ];
-      const images = certificateImages.map(item => ({
-        ...item,
-        image: document.querySelector(`#${item.id} img`)
-      }));
-      const missing = images.find(item => !item.image || !item.image.complete || !item.image.naturalWidth);
-      if (missing) {
-        alert(`Could not load ${missing ? missing.filename : 'a certificate image'}. Please upload both certificate PNG files to the same folder as index.html and try again.`);
-        return;
-      }
       const oldLabel = button.textContent;
       button.disabled = true;
-      button.textContent = 'Preparing PDF…';
+      button.textContent = 'Preparing your keepsakes…';
       try {
-        // jsPDF is loaded from a CDN. If unavailable, fall back to the browser's Save as PDF flow.
-        if (!window.jspdf || !window.jspdf.jsPDF) {
-          window.print();
-          return;
-        }
-        const { jsPDF } = window.jspdf;
-        const pdf = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'a4', compress: true });
-        for (let i = 0; i < images.length; i++) {
-          if (i > 0) pdf.addPage('a4', 'landscape');
-          const img = images[i].image;
-          const canvas = document.createElement('canvas');
-          canvas.width = img.naturalWidth;
-          canvas.height = img.naturalHeight;
-          const ctx = canvas.getContext('2d');
-          ctx.fillStyle = '#ffffff';
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(img, 0, 0);
-          const imageData = canvas.toDataURL('image/jpeg', 0.94);
-          const pageWidth = pdf.internal.pageSize.getWidth();
-          const pageHeight = pdf.internal.pageSize.getHeight();
-          const margin = 28;
-          const scale = Math.min((pageWidth - margin * 2) / canvas.width, (pageHeight - margin * 2) / canvas.height);
-          const width = canvas.width * scale;
-          const height = canvas.height * scale;
-          pdf.addImage(imageData, 'JPEG', (pageWidth - width) / 2, (pageHeight - height) / 2, width, height, undefined, 'FAST');
-        }
-        pdf.save('Chef-Jeannica-Gift-Certificates.pdf');
+        if (!window.PDFLib) throw new Error('PDF library did not load. Please refresh and try again.');
+        const { PDFDocument } = window.PDFLib;
+        const [adoptionResponse, treeResponse] = await Promise.all([
+          fetch('./adoption-certificate.pdf'),
+          fetch('./tree-certificate.png')
+        ]);
+        if (!adoptionResponse.ok) throw new Error('Could not load adoption-certificate.pdf. Please check that it is uploaded beside index.html.');
+        if (!treeResponse.ok) throw new Error('Could not load tree-certificate.png. Please check that it is uploaded beside index.html.');
+        const [adoptionBytes, treeBytes] = await Promise.all([adoptionResponse.arrayBuffer(), treeResponse.arrayBuffer()]);
+
+        // Keep every page of the original adoption PDF, then append the tree PNG as its own PDF page.
+        const outputPdf = await PDFDocument.create();
+        const adoptionPdf = await PDFDocument.load(adoptionBytes);
+        const adoptionPages = await outputPdf.copyPages(adoptionPdf, adoptionPdf.getPageIndices());
+        adoptionPages.forEach(page => outputPdf.addPage(page));
+
+        const treeImage = await outputPdf.embedPng(treeBytes);
+        const a4Landscape = [841.89, 595.28];
+        const a4Portrait = [595.28, 841.89];
+        const pageSize = treeImage.width >= treeImage.height ? a4Landscape : a4Portrait;
+        const treePage = outputPdf.addPage(pageSize);
+        const margin = 28;
+        const scale = Math.min((pageSize[0] - margin * 2) / treeImage.width, (pageSize[1] - margin * 2) / treeImage.height);
+        const width = treeImage.width * scale;
+        const height = treeImage.height * scale;
+        treePage.drawImage(treeImage, { x: (pageSize[0] - width) / 2, y: (pageSize[1] - height) / 2, width, height });
+
+        const pdfBytes = await outputPdf.save();
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Chef-Jeannica-Gift-Certificates.pdf';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
       } catch (error) {
         console.error('Could not generate certificate PDF:', error);
-        alert('The PDF could not be generated. The print dialog will open instead; choose “Save as PDF”.');
-        window.print();
+        alert(error.message || 'The PDF could not be generated. Please check that both certificate files are uploaded and try again.');
       } finally {
         button.disabled = false;
         button.textContent = oldLabel;
